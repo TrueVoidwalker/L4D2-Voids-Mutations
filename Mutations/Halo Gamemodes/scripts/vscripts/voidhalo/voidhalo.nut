@@ -65,11 +65,7 @@ MutationState <-
 	FixSpecialClaw = 4
 }
 
-// Script Local Vars
 local player = null;
-local HealTarget = null;
-local HealTotal = 0;
-// ------------------------
 
 function OnGameEvent_player_spawn( params )
 {
@@ -127,9 +123,9 @@ function OnGameEvent_difficulty_changed( params )
 
 function OnGameEvent_heal_success( params )
 {
-	HealTarget = GetPlayerFromUserID( params["subject"] );
+	local HealTarget = GetPlayerFromUserID( params["subject"] );
 
-	HealTotal = (HealTarget.GetHealth() + 70);
+	local HealTotal = (HealTarget.GetHealth() + 70);
 
 	if (HealTotal > HealTarget.GetMaxHealth())
 		HealTotal = HealTarget.GetMaxHealth();
@@ -137,7 +133,14 @@ function OnGameEvent_heal_success( params )
 	HealTarget.SetHealth( HealTotal );
 }
 
-// Tank Health Changes
+function OnGameEvent_revive_success( params )
+{
+	player = GetPlayerFromUserID( params["subject"] );
+
+	player.SetHealth( 45 );
+	player.SetHealthBuffer( 70 );
+}
+
 function CheckDifficultyForSpecialStats( difficulty )
 {
 	SessionState.CurrentDifficulty = difficulty;
@@ -161,7 +164,6 @@ function OnGameEvent_tank_spawn( params )
 	tank.SetHealth( SessionState.TankHealth );
 }
 
-// Fix Special Infected damage to mimic VS.
 function AllowTakeDamage( damageTable )
 {
 	if ( !damageTable.Attacker || !damageTable.Victim )
