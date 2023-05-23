@@ -144,17 +144,11 @@ function CheckDifficultyForSpecialStats( difficulty )
 
 	local health = 0;
 	if ( Director.GetGameModeBase() == "versus" )
-		health = 6000;
-	else if ( difficulty == "easy" )
-		health = 3000;
-	else if ( difficulty == "normal" )
-		health = 4000;
-	else if ( difficulty == "hard" )
-		health = 5000;
-	else if ( difficulty == "impossible" )
-		health = 6000;
+		health = [6000, 6000, 6000, 6000];
+	else
+		health = [3000, 4000, 5000, 6000];
 	
-	SessionState.TankHealth = health;
+	SessionState.TankHealth = health[difficulty];
 }
 
 function OnGameEvent_tank_spawn( params )
@@ -213,7 +207,7 @@ function AllowTakeDamage( damageTable )
 						if ( damageTable.Attacker.GetZombieType() == 8 )
 							damageTable.DamageDone = 100;
 						else
-							damageTable.DamageDone = ( SessionState.FixSpecialClaw * 4 );
+							damageTable.DamageDone = ( SessionState.FixSpecialClaw * 2 );
 	
 						break
 					}
