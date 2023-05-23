@@ -203,14 +203,7 @@ function AllowTakeDamage( damageTable )
 					case 2:	// Advanced
 						damageTable.DamageDone = ( SessionState.FixSpecialClaw * 1.5 ); break;
 					case 3:	// Expert
-					{
-						if ( damageTable.Attacker.GetZombieType() == 8 )
-							damageTable.DamageDone = 100;
-						else
-							damageTable.DamageDone = ( SessionState.FixSpecialClaw * 2 );
-	
-						break
-					}
+						damageTable.DamageDone = ( SessionState.FixSpecialClaw * 2 ); break;
 					default:	// Easy/Other
 						damageTable.DamageDone = ( SessionState.FixSpecialClaw / 2 ); break;
 				}
