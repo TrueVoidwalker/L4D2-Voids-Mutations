@@ -1,6 +1,3 @@
-//============ Copyright (c) Valve Corporation, All rights reserved. ==========
-//
-//
 //=============================================================================
 Msg("Activating Mutation L4D2\n");
 
@@ -153,25 +150,13 @@ function OnGameEvent_player_spawn( params )
 	switch( player.GetZombieType() )
 	{
 		case 1:
-		{
-			player.SetModel( "models/infected/smoker.mdl" );
-			break;
-		}
+			player.SetModel( "models/infected/smoker.mdl" ); break;
 		case 2:
-		{
-			player.SetModel( "models/infected/boomer.mdl" );
-			break;
-		}
+			player.SetModel( "models/infected/boomer.mdl" ); break;
 		case 3:
-		{
-			player.SetModel( "models/infected/hunter.mdl" );
-			break;
-		}
+			player.SetModel( "models/infected/hunter.mdl" ); break;
 		case 8:
-		{
-			player.SetModel( "models/infected/hulk.mdl" );
-			break;
-		}
+			player.SetModel( "models/infected/hulk.mdl" ); break;
 		default:
 			break;
 	}
