@@ -26,8 +26,6 @@
 
 		// Survivor Bot Behavior
 		sb_friend_immobilized_reaction_time_normal 1
-		sb_friend_immobilized_reaction_time_hard 0.75
-		sb_friend_immobilized_reaction_time_expert 0.5
 		sb_allow_shoot_through_survivors 0
 
 		// Weapons
@@ -66,8 +64,6 @@
 		// Fire
 		inferno_damage 60
 		tank_burn_duration 30
-		tank_burn_duration_hard 40
-		tank_burn_duration_expert 50
 		z_special_burn_dmg_scale 2
 		z_witch_burn_time 10
 
@@ -84,10 +80,7 @@
 		adrenaline_revive_speedup 0.6666
 
 		// Zombies
-		z_throttle_hit_interval_easy 1.1
 		z_throttle_hit_interval_normal 1
-		z_throttle_hit_interval_hard 0.85
-		z_throttle_hit_interval_expert 0.75
 		z_hit_from_behind_factor 1
 		z_spawn_mobs_behind_chance 50
 		z_mob_spawn_min_size 20
@@ -102,18 +95,9 @@
 		director_convert_pills_to_defib_health 0
 
 		// Difficulty
-		z_non_head_damage_factor_easy 1.3333
 		z_non_head_damage_factor_normal 1
-		z_non_head_damage_factor_hard 0.8
-		z_non_head_damage_factor_expert 0.6666
-		survivor_friendly_fire_factor_easy 0
 		survivor_friendly_fire_factor_normal 0.25
-		survivor_friendly_fire_factor_hard 0.25
-		survivor_friendly_fire_factor_expert 0.25
-		survivor_burn_factor_easy 0.1
 		survivor_burn_factor_normal 0.2
-		survivor_burn_factor_hard 0.5
-		survivor_burn_factor_expert 1
 
 		// Misc
 		sv_vote_creation_timer 30
