@@ -1,0 +1,35 @@
+"legacyl4d2vs"
+{
+	"base"		"versus"
+	"maxplayers"	"8"
+
+	"Author"	"Valve"
+
+	"DisplayTitle"	"L4D2 Legacy Versus"
+	"Description"	"Play Versus as originally released!"
+
+	convar
+	{
+		ammo_shotgun_max 56
+		nav_max_view_distance 1500.000000
+		sb_toughness_buffer 5
+		sv_infected_police_tonfa_probability 0
+		z_boomer_gibs 0
+		z_finale_spawn_safety_range 600
+		z_witch_damage_per_kill_hit 15
+
+		// Versus
+		versus_boss_flow_min 0.1
+		sv_infected_ceda_vomitjar_probability 0.1
+		versus_boss_flow_min 0.1
+		versus_tank_flow_team_variation 0.1
+		z_ghost_delay_max 30
+		vomitjar_duration_infected_pz 20
+		z_leap_interval_post_incap 30
+		z_frustration_spawn_delay 10
+		z_jockey_ride_damage 4
+		z_jockey_ride_damage_interval 1
+		tank_burn_duration 75
+		z_witch_damage_per_kill_hit 15
+	}
+}

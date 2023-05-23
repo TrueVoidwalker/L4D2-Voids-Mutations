@@ -1,0 +1,21 @@
+"legacyl4d2coop"
+{
+	"base"		"coop"
+	"maxplayers"	"4"
+
+	"Author"	"Valve"
+
+	"DisplayTitle"	"L4D2 Legacy Co-op"
+	"Description"	"Play Co-op as originally released!"
+
+	convar
+	{
+		ammo_shotgun_max 56
+		nav_max_view_distance 1500.000000
+		sb_toughness_buffer 5
+		sv_infected_police_tonfa_probability 0
+		z_boomer_gibs 0
+		z_finale_spawn_safety_range 600
+		z_witch_damage_per_kill_hit 15
+	}
+}

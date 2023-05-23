@@ -1,0 +1,29 @@
+M16:
+• Long-range damage reduction coefficient reduced from 0.97 to 0.93.
+• Long-range distance threshold to rapidly reduce damage to zero removed.
+• Magazine size reduced from 50 to 30.
+• Reload time reduced from 2.25s to 2s.
+• Spread-per-shot reduced from 0.75 to 0.7.
+
+AK-47:
+• Damage reduced from 58 to 52 (-10.3%).
+• Long-range damage reduction coefficient reduced from 0.97 to 0.91.
+• Long-range distance threshold to rapidly reduce damage to zero removed.
+• Magazine size reduced from 40 to 24.
+• Reload time reduced from 2.5s to 2.25s.
+• Spread-per-shot reduced from 1.6 to 1.45.
+
+SCAR-L:
+• Long-range damage reduction coefficient reduced from 0.97 to 0.96.
+• Long-range distance threshold to rapidly reduce damage to zero removed.
+• Magazine size reduced from 60 to 36.
+• Reload time reduced from 3.5s to 2.75s.
+• Spread-per-shot increased from 0.6 to 0.66.
+
+SG 552:
+• Damage reduced from 33 to 32 (-3%).
+• Long-range damage reduction coefficient reduced from 0.97 to 0.93.
+• Long-range distance threshold to rapidly reduce damage to zero removed.
+• Magazine size reduced from 50 to 30.
+• Reload time reduced from 3.5s to 2.33s.
+• Spread-per-shot reduced from 0.75 to 0.7.

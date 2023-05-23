@@ -1,0 +1,9 @@
+"AddonInfo"
+{
+	addonSteamAppID		550
+	addonversion		1
+	addontitle			"Assault Rifle Tweaks"
+	addonauthor			"Voidwalker"
+	addontagline		"Weapons"
+	addonDescription	"Modifies the T2 assault rifles."
+}

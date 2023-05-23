@@ -1,0 +1,9 @@
+"AddonInfo"
+{
+	addonSteamAppID		550
+	addonversion		1
+	addontitle			"CS:S Sniper Buffs"
+	addonauthor			"Voidwalker"
+	addontagline		"Weapons"
+	addonDescription	"Buffs the Scout and AWP."
+}
