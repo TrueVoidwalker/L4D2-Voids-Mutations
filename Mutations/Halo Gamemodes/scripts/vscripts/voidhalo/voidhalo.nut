@@ -229,5 +229,29 @@ function AllowTakeDamage( damageTable )
 			}
 		}
 	}
+
+	// Spitter acid damage
+	if  ( damageTable.DamageType == 265216 || damageTable.DamageType == 263168 )
+	{
+		if ( damageTable.Attacker.GetZombieType() == 4 && damageTable.Victim.IsSurvivor() )
+		{
+			local spitSingleProcDmg = floor( damageTable.DamageDone );
+
+			if ( spitSingleProcDmg > 0 )
+			{
+				switch ( SessionState.CurrentDifficulty )
+				{
+					case 1:	// Normal
+						damageTable.DamageDone = 3; break;
+					case 2:	// Advanced
+						damageTable.DamageDone = 4; break;
+					case 3:	// Expert
+						damageTable.DamageDone = 5; break;
+					default:	// Easy/Other
+						damageTable.DamageDone = 2; break;
+				}
+			}
+		}
+	}
 	return true;
 }
