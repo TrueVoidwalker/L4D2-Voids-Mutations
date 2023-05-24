@@ -100,7 +100,19 @@ function AllowTakeDamage( damageTable )
 			local spitSingleProcDmg = floor( damageTable.DamageDone );
 
 			if ( spitSingleProcDmg > 0 )
-				damageTable.DamageDone = damageTable.DamageDone;
+			{
+				switch ( SessionState.CurrentDifficulty )
+				{
+					case 1:	// Normal
+						damageTable.DamageDone = damageTable.DamageDone; break;
+					case 2:	// Advanced
+						damageTable.DamageDone = damageTable.DamageDone; break;
+					case 3:	// Expert
+						damageTable.DamageDone = damageTable.DamageDone; break;
+					default:	// Easy/Other
+						damageTable.DamageDone = damageTable.DamageDone; break;
+				}
+			}
 		}
 	}
 	return true;
