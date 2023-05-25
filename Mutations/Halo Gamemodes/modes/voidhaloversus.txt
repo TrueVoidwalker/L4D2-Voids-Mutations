@@ -72,11 +72,11 @@
 		// Healing
 		first_aid_heal_percent 0.001
 		first_aid_kit_max_heal 115
-		pain_pills_health_value 70
+		pain_pills_health_value 0
 		pain_pills_health_threshold 114
-		pain_pills_decay_rate 0.5
+		pain_pills_decay_rate 1
 		adrenaline_duration 10
-		adrenaline_health_buffer 30
+		adrenaline_health_buffer 0
 		adrenaline_run_speed 275
 		adrenaline_backpack_speedup 0.6666
 		adrenaline_revive_speedup 0.6666

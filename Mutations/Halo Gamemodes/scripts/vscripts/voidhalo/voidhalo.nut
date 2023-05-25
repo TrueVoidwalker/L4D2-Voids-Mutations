@@ -123,14 +123,73 @@ function OnGameEvent_difficulty_changed( params )
 
 function OnGameEvent_heal_success( params )
 {
-	local HealTarget = GetPlayerFromUserID( params["subject"] );
+	player = GetPlayerFromUserID( params["subject"] );
 
-	local HealTotal = (HealTarget.GetHealth() + 70);
+	local HealTotal = (player.GetHealth() + 70);
 
-	if (HealTotal > HealTarget.GetMaxHealth())
-		HealTotal = HealTarget.GetMaxHealth();
+	if ( HealTotal > player.GetMaxHealth() )
+		HealTotal = player.GetMaxHealth();
 
-	HealTarget.SetHealth( HealTotal );
+	player.SetHealth( HealTotal );
+}
+
+function OnGameEvent_pills_used( params )
+{
+	player = GetPlayerFromUserID( params["subject"] );
+
+	local playerHealth = player.GetHealth();
+	local playerBufferHealth = player.GetHealthBuffer();
+	local HealTotal = (player.GetHealth() + 70);
+
+	if ( playerHealth >= 45 )
+	{
+		HealTotal = ( player.GetMaxHealth() - playerHealth );
+
+		player.SetHealthBuffer( HealTotal );
+	}
+	else
+	{
+		local playerShieldMod = (playerBufferHealth + 70 + floor( (playerHealth - 45) * 1.5555));
+
+		if ( playerShieldMod > 70 )
+			playerShieldMod = 70;
+
+		player.SetHealth( 45 );
+		player.SetHealthBuffer( playerShieldMod );
+	}
+}
+
+function OnGameEvent_adrenaline_used( params )
+{
+	player = GetPlayerFromUserID( params["subject"] );
+
+	local playerHealth = player.GetHealth();
+	local playerBufferHealth = player.GetHealthBuffer();
+	local HealTotal = player.GetHealthBuffer();
+
+	if ( playerHealth >= 45 )
+	{
+		HealTotal = ( playerHealth + playerBufferHealth + 45 );
+
+		if ( HealTotal > player.GetMaxHealth() )
+		{
+			HealTotal = (player.GetMaxHealth() - playerHealth);
+
+			player.SetHealthBuffer( HealTotal );
+		}
+		else
+		{
+			HealTotal = (HealTotal - playerHealth);
+
+			player.SetHealthBuffer( HealTotal );
+		}
+	}
+	else if ( playerHealth >= 30 )
+		player.SetHealth( 45 );
+	else if ( playerHealth >= 15 )
+		player.SetHealth( 30 );
+	else
+		player.SetHealth( 15 );
 }
 
 function OnGameEvent_revive_success( params )
