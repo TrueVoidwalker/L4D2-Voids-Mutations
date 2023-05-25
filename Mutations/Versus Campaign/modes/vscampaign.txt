@@ -24,9 +24,9 @@
 		// Spawn Settings
 		z_spawn_safety_range 400				// Versus is 200, Co-op is 550
 		z_ghost_los_expected_progress 2000
-		z_ghost_delay_minspawn 24
-		z_ghost_delay_max 24
-		z_ghost_delay_min 24
+		z_ghost_delay_minspawn 25
+		z_ghost_delay_max 25
+		z_ghost_delay_min 25
 		// Versus SI respawn timer is 20-24 (depending on player SI), Co-op SI respawn timer is 45 (default)
 		director_special_initial_spawn_delay_min 2
 		director_special_initial_spawn_delay_max 10
