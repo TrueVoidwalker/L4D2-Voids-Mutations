@@ -17,18 +17,17 @@ MutationState <-
 	TankCount = 0
 	CurrentDifficulty = 1
 	FixSpecialClaw = 4
-	OverrideCommonClaw = 2
 }
 
 function Update()
 {
 	if ( Director.IsTankInPlay() )
 	{
-		if ( SessionState.TankCount >= 4 && !DirectorOptions.cm_MaxSpecials == 0 )
+		if ( SessionState.TankCount >= 4 && DirectorOptions.cm_MaxSpecials != 0 )
 			DirectorOptions.cm_MaxSpecials = 0;
-		else if ( SessionState.TankCount == 3 && !DirectorOptions.cm_MaxSpecials == 1 )
+		else if ( SessionState.TankCount == 3 && DirectorOptions.cm_MaxSpecials != 1 )
 			DirectorOptions.cm_MaxSpecials = 1;
-		else if ( SessionState.TankCount == 2 && !DirectorOptions.cm_MaxSpecials == 2 )
+		else if ( SessionState.TankCount == 2 && DirectorOptions.cm_MaxSpecials != 2 )
 			DirectorOptions.cm_MaxSpecials = 2;
 		else if ( !DirectorOptions.cm_MaxSpecials == 3 )
 			DirectorOptions.cm_MaxSpecials = 3;

@@ -37,6 +37,7 @@ DirectorOptions <-
 		weapon_upgradepack_explosive = 0
 		weapon_upgradepack_incendiary = 0
 		upgrade_item = 0
+		ammo = 0
 	}
 
 	function AllowWeaponSpawn( classname )
@@ -139,7 +140,7 @@ function OnGameEvent_pills_used( params )
 
 	local playerHealth = player.GetHealth();
 	local playerBufferHealth = player.GetHealthBuffer();
-	local HealTotal = (player.GetHealth() + 70);
+	local HealTotal = 70;
 
 	if ( playerHealth >= 45 )
 	{
@@ -149,13 +150,13 @@ function OnGameEvent_pills_used( params )
 	}
 	else
 	{
-		local playerShieldMod = (playerBufferHealth + 70 + floor( (playerHealth - 45) * 1.5555));
+		HealTotal = (playerBufferHealth + 70 + floor( (playerHealth - 45) * 1.5555 ));
 
-		if ( playerShieldMod > 70 )
-			playerShieldMod = 70;
+		if ( HealTotal > 70 )
+			HealTotal = 70;
 
 		player.SetHealth( 45 );
-		player.SetHealthBuffer( playerShieldMod );
+		player.SetHealthBuffer( HealTotal );
 	}
 }
 
@@ -165,7 +166,7 @@ function OnGameEvent_adrenaline_used( params )
 
 	local playerHealth = player.GetHealth();
 	local playerBufferHealth = player.GetHealthBuffer();
-	local HealTotal = player.GetHealthBuffer();
+	local HealTotal = 45;
 
 	if ( playerHealth >= 45 )
 	{
@@ -185,11 +186,21 @@ function OnGameEvent_adrenaline_used( params )
 		}
 	}
 	else if ( playerHealth >= 30 )
+	{
+		HealTotal = (playerBufferHealth + playerHealth);
+
+		if ( HealTotal > 70 )
+			HealTotal = 70;
+
 		player.SetHealth( 45 );
-	else if ( playerHealth >= 15 )
-		player.SetHealth( 30 );
+		player.SetHealthBuffer( HealTotal );
+	}
 	else
-		player.SetHealth( 15 );
+	{
+		HealTotal = (playerHealth + 15);
+
+		player.SetHealth( HealTotal );
+	}
 }
 
 function OnGameEvent_revive_success( params )
@@ -228,6 +239,12 @@ function AllowTakeDamage( damageTable )
 	if ( !damageTable.Attacker || !damageTable.Victim )
 		return true;
 
+	if ( damageTable.Weapon != null && damageTable.Weapon.IsValid() && damageTable.Weapon.GetClassname() == "weapon_pistol_magnum" )
+	{
+		damageTable.DamageDone = (damageTable.DamageDone * 0.8);
+		return true;
+	}
+
 	if ( damageTable.DamageType == 128 )
 	{
 		if ( damageTable.Attacker.IsPlayer() && damageTable.Victim.IsPlayer() )
@@ -264,10 +281,12 @@ function AllowTakeDamage( damageTable )
 					case 2:	// Advanced
 						damageTable.DamageDone = ( SessionState.FixSpecialClaw * 1.5 ); break;
 					case 3:	// Expert
-						damageTable.DamageDone = ( SessionState.FixSpecialClaw * 2 ); break;
+						damageTable.DamageDone = ( SessionState.FixSpecialClaw * 2.5 ); break;
 					default:	// Easy/Other
 						damageTable.DamageDone = ( SessionState.FixSpecialClaw / 2 ); break;
 				}
+
+				return true;
 			}
 		}
 		else if ( damageTable.Attacker.GetClassname() == "infected" && damageTable.Victim.IsPlayer() )
@@ -285,6 +304,8 @@ function AllowTakeDamage( damageTable )
 					default:	// Easy/Other
 						damageTable.DamageDone = 1; break;
 				}
+
+				return true;
 			}
 		}
 	}
@@ -309,6 +330,8 @@ function AllowTakeDamage( damageTable )
 					default:	// Easy/Other
 						damageTable.DamageDone = 2; break;
 				}
+
+				return true;
 			}
 		}
 	}

@@ -17,7 +17,7 @@
 		survivor_limp_health 0
 		survivor_incap_decay_rate 10
 		survivor_revive_duration 3
-		survivor_max_incapacitated_count 99
+		survivor_max_incapacitated_count 2
 		survivor_revive_health 45
 		z_survivor_respawn_health 115
 		survivor_respawn_with_guns 0
@@ -29,19 +29,17 @@
 		sb_allow_shoot_through_survivors 0
 
 		// Weapons
-		ammo_smg_max 500
-		ammo_shotgun_max 80
-		ammo_assaultrifle_max 250
-		ammo_autoshotgun_max 50
-		ammo_huntingrifle_max 75
-		ammo_sniperrifle_max 30
+		ammo_smg_max 800
+		ammo_shotgun_max 128
+		ammo_assaultrifle_max 400
+		ammo_autoshotgun_max 80
+		ammo_huntingrifle_max 120
+		ammo_sniperrifle_max 60
 		ammo_grenadelauncher_max 15
 		ammo_chainsaw_max 30
 		grenadelauncher_damage 700
 		grenadelauncher_ff_scale 0.25
-		grenadelauncher_ff_scale_self 0.25
-		z_shotgun_bonus_damage_multiplier 2
-		z_shotgun_bonus_damage_range 250
+		grenadelauncher_ff_scale_self 0.5
 		z_tank_autoshotgun_dmg_scale 1
 		z_tank_grenade_launcher_dmg_scale 1
 
@@ -62,10 +60,8 @@
 		vomitjar_radius_survivors 110
 
 		// Fire
-		inferno_damage 60
+		survivor_burn_factor_normal 0.5
 		tank_burn_duration 30
-		z_special_burn_dmg_scale 2
-		z_witch_burn_time 10
 
 		// Healing
 		first_aid_heal_percent 0.001
@@ -80,14 +76,20 @@
 		adrenaline_revive_speedup 0.6666
 
 		// Zombies
+		z_health 100
+		sv_fallen_survivor_health_multiplier 10
 		z_throttle_hit_interval_normal 1
 		z_hit_from_behind_factor 1
-		z_spawn_mobs_behind_chance 50
-		z_mob_spawn_min_size 20
 		vs_tank_damage 28
 		z_witch_damage 115
 		sv_infected_police_tonfa_probability 0
 		sv_infected_riot_control_tonfa_probability 0
+
+		// Zombie Mobs
+		z_mob_spawn_min_size 20
+		z_mob_spawn_max_interval_normal 9999
+		z_mob_spawn_min_interval_normal 9999
+		z_spawn_mobs_behind_chance 50
 
 		// Director Spawn Behavior
 		director_convert_pills 0

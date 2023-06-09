@@ -38,8 +38,8 @@ DirectorOptions <-
 		weapon_upgradepack_explosive = 0
 		weapon_upgradepack_incendiary = 0
 		weapon_chainsaw = 0
-		// weapon_propanetank = 0
-		// weapon_oxygentank = 0
+		weapon_propanetank = 0
+		weapon_oxygentank = 0
 		weapon_rifle_m60 = 0
 		upgrade_item = 0
 	}
@@ -72,7 +72,6 @@ MutationState <-
 	TankCount = 0
 	CurrentDifficulty = 1
 	FixSpecialClaw = 4
-	OverrideCommonClaw = 2
 }
 
 function Update()
@@ -232,7 +231,19 @@ function AllowTakeDamage( damageTable )
 			local spitSingleProcDmg = floor( damageTable.DamageDone );
 
 			if ( spitSingleProcDmg > 0 )
-				damageTable.DamageDone = 3;
+			{
+				switch ( SessionState.CurrentDifficulty )
+				{
+					case 1:	// Normal
+						damageTable.DamageDone = 3; break;
+					case 2:	// Advanced
+						damageTable.DamageDone = 4; break;
+					case 3:	// Expert
+						damageTable.DamageDone = 5; break;
+					default:	// Easy/Other
+						damageTable.DamageDone = 2; break;
+				}
+			}
 		}
 	}
 	return true;

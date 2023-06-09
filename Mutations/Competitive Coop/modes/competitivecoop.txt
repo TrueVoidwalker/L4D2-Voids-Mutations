@@ -45,6 +45,7 @@
 		z_gun_swing_coop_max_penalty 6
 		z_gun_swing_coop_min_penalty 3
 		sb_friend_immobilized_reaction_time_normal 0.5
+		sb_friend_immobilized_reaction_time_hard 0.5
 
 		// Equipment Settings
 		sv_infected_ceda_vomitjar_probability 0
