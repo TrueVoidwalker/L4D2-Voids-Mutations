@@ -18,56 +18,93 @@ function CheckDifficultyForSpecialDamage( difficulty )
 
 function AllowTakeDamage( damageTable )
 {
-	if ( !damageTable.Attacker || !damageTable.Victim )
+	if ( !damageTable.Attacker || !damageTable.Victim || !damageTable.Inflictor )
 		return true;
 
 	if ( damageTable.DamageType == 128 )
 	{
 		if ( damageTable.Attacker.IsPlayer() && damageTable.Victim.IsPlayer() )
 		{
-			if ( damageTable.Victim.IsSurvivor() )
+			if ( damageTable.Victim.IsSurvivor() && !damageTable.Attacker.IsSurvivor() )
 			{
 				if ( damageTable.Attacker.IsStaggering() )
 					return false;
-				else if ( damageTable.Victim.GetSpecialInfectedDominatingMe() == damageTable.Attacker )
-					return true;
 
-				switch ( damageTable.Attacker.GetZombieType() )
+				if ( damageTable.Victim.GetSpecialInfectedDominatingMe() == damageTable.Attacker )
 				{
-					case 1:	// Smoker
-						SessionState.FixSpecialClaw = Convars.GetFloat( "smoker_pz_claw_dmg" ); break;
-					case 2:	// Boomer
-						SessionState.FixSpecialClaw = Convars.GetFloat( "boomer_pz_claw_dmg" ); break;
-					case 3:	// Hunter
-						SessionState.FixSpecialClaw = Convars.GetFloat( "hunter_pz_claw_dmg" ); break;
-					case 4:	// Spitter
-						SessionState.FixSpecialClaw = Convars.GetFloat( "spitter_pz_claw_dmg" ); break;
-					case 5:	// Jockey
-						SessionState.FixSpecialClaw = Convars.GetFloat( "jockey_pz_claw_dmg" ); break;
-					case 6:	// Charger
-						SessionState.FixSpecialClaw = Convars.GetFloat( "charger_pz_claw_dmg" ); break;
-					case 8:	// Tank
-						SessionState.FixSpecialClaw = Convars.GetFloat( "vs_tank_damage" ); break;
-				}
-
-				switch ( SessionState.CurrentDifficulty )
-				{
-					case 1:	// Normal
-						damageTable.DamageDone = SessionState.FixSpecialClaw; break;
-					case 2:	// Advanced
-						damageTable.DamageDone = ( SessionState.FixSpecialClaw * 1.5 ); break;
-					case 3:	// Expert
+					switch ( damageTable.Attacker.GetZombieType() )
 					{
-						if ( damageTable.Attacker.GetZombieType() == 8 )
-							damageTable.DamageDone = 100;
-						else
-							damageTable.DamageDone = ( SessionState.FixSpecialClaw * 4 );
-	
-						break;
+						case 3:	// Hunter
+							SessionState.FixSpecialClaw = Convars.GetFloat( "z_pounce_damage" ); break;
+						case 5:	// Jockey
+							SessionState.FixSpecialClaw = Convars.GetFloat( "z_jockey_ride_damage" ); break;
+						case 6:	// Charger
+						{
+							if ( damageTable.Attacker.GetVelocity().Length() > 0 )
+								SessionState.FixSpecialClaw = Convars.GetFloat( "z_charge_max_damage" );
+							else
+							{
+								SessionState.FixSpecialClaw = Convars.GetFloat( "z_charger_pound_dmg" );
+								return true;
+							}
+
+							break;
+						}
 					}
-					default:	// Easy/Other
-						damageTable.DamageDone = ( SessionState.FixSpecialClaw / 2 ); break;
+
+					switch ( SessionState.CurrentDifficulty )
+					{
+						case 1:	// Normal
+							damageTable.DamageDone = SessionState.FixSpecialClaw; break;
+						case 2:	// Advanced
+							damageTable.DamageDone = ( SessionState.FixSpecialClaw * 2 ); break;
+						case 3:	// Expert
+							damageTable.DamageDone = ( SessionState.FixSpecialClaw * 2 ); break;
+						default:	// Easy/Other
+							damageTable.DamageDone = ( SessionState.FixSpecialClaw / 1 ); break;
+					}
 				}
+				else
+				{
+					switch ( damageTable.Attacker.GetZombieType() )
+					{
+						case 1:	// Smoker
+							SessionState.FixSpecialClaw = Convars.GetFloat( "smoker_pz_claw_dmg" ); break;
+						case 2:	// Boomer
+							SessionState.FixSpecialClaw = Convars.GetFloat( "boomer_pz_claw_dmg" ); break;
+						case 3:	// Hunter
+							SessionState.FixSpecialClaw = Convars.GetFloat( "hunter_pz_claw_dmg" ); break;
+						case 4:	// Spitter
+							SessionState.FixSpecialClaw = Convars.GetFloat( "spitter_pz_claw_dmg" ); break;
+						case 5:	// Jockey
+							SessionState.FixSpecialClaw = Convars.GetFloat( "jockey_pz_claw_dmg" ); break;
+						case 6:	// Charger
+							SessionState.FixSpecialClaw = Convars.GetFloat( "charger_pz_claw_dmg" ); break;
+						case 8:	// Tank
+							SessionState.FixSpecialClaw = Convars.GetFloat( "vs_tank_damage" ); break;
+					}
+
+					switch ( SessionState.CurrentDifficulty )
+					{
+						case 1:	// Normal
+							damageTable.DamageDone = SessionState.FixSpecialClaw; break;
+						case 2:	// Advanced
+							damageTable.DamageDone = ( SessionState.FixSpecialClaw * 1.5 ); break;
+						case 3:	// Expert
+						{
+							if ( damageTable.Attacker.GetZombieType() == 8 )
+								damageTable.DamageDone = 100;
+							else
+								damageTable.DamageDone = ( SessionState.FixSpecialClaw * 4 );
+
+							break;
+						}
+						default:	// Easy/Other
+							damageTable.DamageDone = ( SessionState.FixSpecialClaw / 2 ); break;
+					}
+				}
+
+				return true;
 			}
 		}
 		else if ( damageTable.Attacker.GetClassname() == "infected" && damageTable.Victim.IsPlayer() )
@@ -87,8 +124,33 @@ function AllowTakeDamage( damageTable )
 						default:	// Easy/Other
 							damageTable.DamageDone = 1; break;
 					}
+
+					return true;
 				}
 			}
+		}
+	}
+
+	// Smoker choke damage
+	if  ( damageTable.DamageType == 1048576 )
+	{
+		if ( damageTable.Attacker.GetZombieType() == 1 && damageTable.Victim.IsSurvivor() )
+		{
+			SessionState.FixSpecialClaw = Convars.GetFloat( "tongue_choke_damage_amount" );
+
+			switch ( SessionState.CurrentDifficulty )
+			{
+				case 1:	// Normal
+					damageTable.DamageDone = SessionState.FixSpecialClaw; break;
+				case 2:	// Advanced
+					damageTable.DamageDone = ( SessionState.FixSpecialClaw * 2 ); break;
+				case 3:	// Expert
+					damageTable.DamageDone = ( SessionState.FixSpecialClaw * 3 ); break;
+				default:	// Easy/Other
+					damageTable.DamageDone = ( SessionState.FixSpecialClaw / 1 ); break;
+			}
+
+			return true;
 		}
 	}
 
@@ -97,9 +159,7 @@ function AllowTakeDamage( damageTable )
 	{
 		if ( damageTable.Attacker.GetZombieType() == 4 && damageTable.Victim.IsSurvivor() )
 		{
-			local spitSingleProcDmg = floor( damageTable.DamageDone );
-
-			if ( spitSingleProcDmg > 0 )
+			if ( damageTable.DamageDone >= 1 )
 			{
 				switch ( SessionState.CurrentDifficulty )
 				{
@@ -112,6 +172,8 @@ function AllowTakeDamage( damageTable )
 					default:	// Easy/Other
 						damageTable.DamageDone = damageTable.DamageDone; break;
 				}
+
+				return true;
 			}
 		}
 	}
