@@ -1,0 +1,9 @@
+Scout:
+• Damage increased from 105 to 180 (+71.4%).
+• Reload time reduced from 3s to 2.25s.
+
+AWP:
+• Damage increased from 115 to 320 (+178.2%).
+• Magazine size reduced from 20 to 10.
+• Reload time reduced from 3.85s to 2.5s.
+• Reserve ammo changed to "AMMO_TYPE_AUTOSHOTGUN", reducing reserve ammo from 180 to 90.

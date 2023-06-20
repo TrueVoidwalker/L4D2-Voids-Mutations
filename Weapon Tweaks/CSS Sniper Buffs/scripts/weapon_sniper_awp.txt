@@ -9,6 +9,7 @@ WeaponData
 	"MinStandingSpread"		"0.1"
 	"MinInAirSpread"		"1.5"
 	"MaxMovementSpread"		"3"
+	"ReloadDuration"		"2.5"
 	"AddonAttachment"		"primary"
 	"Team"				"Survivor"
 	
