@@ -7,7 +7,7 @@
 
 	"DisplayTitle"	"Halo (Floodgate)"
 	"ShortDescription"	"Make the game feel more like Halo."
-	"Description"	"Floodgate is a custom mutation gamemode designed to make L4D2's gameplay feel more like the Halo games, while retaining the mechanics of L4D2."
+	"Description"	"Floodgate is a custom mutation designed to make L4D2's gameplay feel more like the Halo games, while retaining the mechanics of L4D2."
 	"Image"			"vgui/blog/lone_gunman"
 
 	convar
@@ -17,7 +17,6 @@
 		survivor_limp_health 0
 		survivor_incap_decay_rate 10
 		survivor_revive_duration 3
-		survivor_max_incapacitated_count 2
 		survivor_revive_health 45
 		z_survivor_respawn_health 115
 		survivor_respawn_with_guns 0
@@ -51,10 +50,8 @@
 		mounted_gun_overheat_time 10
 		mounted_gun_cooldown_time 3.33
 		mounted_gun_overheat_penalty_time 3.33
-		z_minigun_damage_rate 36000
 		z_minigun_overheat_time 10
 		z_minigun_cooldown_time 3.33
-		z_minigun_rate_of_fire 900
 
 		// Grenades
 		vomitjar_duration_infected_bot 30
@@ -62,9 +59,9 @@
 		vomitjar_radius_survivors 110
 
 		// Fire
-		survivor_burn_factor_easy 0.1
-		survivor_burn_factor_normal 0.5
-		survivor_burn_factor_hard 0.7
+		survivor_burn_factor_easy 0.05
+		survivor_burn_factor_normal 0.4
+		survivor_burn_factor_hard 0.6
 		survivor_burn_factor_expert 1
 		tank_burn_duration 30
 		tank_burn_duration_hard 40
@@ -90,6 +87,7 @@
 		z_throttle_hit_interval_hard 0.85
 		z_throttle_hit_interval_expert 0.75
 		z_hit_from_behind_factor 1
+		charger_pz_claw_dmg 8
 		vs_tank_damage 28
 		z_witch_damage 115
 		sv_infected_police_tonfa_probability 0

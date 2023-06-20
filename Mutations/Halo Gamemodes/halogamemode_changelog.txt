@@ -5,7 +5,7 @@ Survivor Changes:
 	• Survivors incap max reverted to 2 across all gamemodes.
 
 Weapon Changes:
-	• Magnum damage reduced by 20%.
+	• Magnum damage reduced by 20% via script.
 	• Submachine Guns and Non-Automatic Shotguns have reserve ammo equal to 16x their ammo capacity.
 	• Assault Rifles, Automatic Shotguns, and the Hunting Rifle all have reserve ammo equal to 8x their ammo capacity.
 	• Removed ammo piles.
@@ -14,13 +14,15 @@ Weapon Changes:
 Healing Changes:
 	• Buffer health now decays at a rate of 1/s (from 1/2s).
 	• Pain Pills now heal up to 45 health, or give up to 70 buffer health.
-	• Adrenaline now heals up to 15 health, or give up to 45 buffer health.
+	• Adrenaline now heals up to 15 health, or give up to 30 buffer health.
 
 Zombie Changes:
 	• Common Infected health increased to 100.
 	• Common Infected hoards no longer randomly happen.
+	• Special Infected dominate damage more appropriately adjusted via difficulty.
+	• Charger claw damage reduced to 8.
 	• Spitter acid damage-per-tick is now static based on difficulty.
-		○ Easy -> 2, Normal -> 3, Advanced -> 4, Expert -> 5
+		○ Easy -> 1, Normal -> 3, Advanced -> 4, Expert -> 5
 
 Other Changes:
 	• Reverted fire base damage.

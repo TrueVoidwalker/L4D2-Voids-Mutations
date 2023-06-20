@@ -18,7 +18,6 @@
 		survivor_limp_health 0
 		survivor_incap_decay_rate 10
 		survivor_revive_duration 3
-		survivor_max_incapacitated_count 2
 		survivor_revive_health 45
 		z_survivor_respawn_health 115
 		survivor_respawn_with_guns 0
@@ -41,7 +40,7 @@
 		grenadelauncher_damage 700
 		grenadelauncher_ff_scale 0.25
 		grenadelauncher_ff_scale_self 0.5
-		z_tank_autoshotgun_dmg_scale 1
+		z_tank_autoshotgun_dmg_scale 0.75
 		z_tank_grenade_launcher_dmg_scale 1
 
 		// Turrets
@@ -50,10 +49,8 @@
 		mounted_gun_overheat_time 10
 		mounted_gun_cooldown_time 3.33
 		mounted_gun_overheat_penalty_time 3.33
-		z_minigun_damage_rate 36000
 		z_minigun_overheat_time 10
 		z_minigun_cooldown_time 3.33
-		z_minigun_rate_of_fire 900
 
 		// Grenades
 		vomitjar_duration_infected_bot 30
@@ -62,7 +59,7 @@
 		vomitjar_radius_survivors 110
 
 		// Fire
-		survivor_burn_factor_normal 0.5
+		survivor_burn_factor_normal 0.4
 		tank_burn_duration 60										// Tanks burn slower in Versus
 
 		// Healing
@@ -82,6 +79,7 @@
 		sv_fallen_survivor_health_multiplier 10
 		z_throttle_hit_interval_normal 1
 		z_hit_from_behind_factor 1
+		charger_pz_claw_dmg 8
 		vs_tank_damage 28
 		z_witch_damage 115
 		sv_infected_police_tonfa_probability 0
@@ -102,7 +100,6 @@
 		// Difficulty
 		z_non_head_damage_factor_normal 1
 		survivor_friendly_fire_factor_normal 0.25
-		survivor_burn_factor_normal 0.2
 
 		// Misc
 		sv_vote_creation_timer 30
