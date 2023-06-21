@@ -6,6 +6,7 @@ DirectorOptions <-
 	ActiveChallenge = 1
 	cm_SpecialRespawnInterval = 25
 	cm_MaxSpecials = 4
+	cm_AggressiveSpecials = 1
 }
 
 EntFire( "worldspawn", "RunScriptFile", "anv_versus" );
@@ -36,6 +37,14 @@ function Update()
 		DirectorOptions.cm_MaxSpecials = 4;
 }
 
+function OnGameEvent_round_start_post_nav( params )
+{
+	if ( Director.GetMapName() == "c5m5_bridge" || Director.GetMapName() == "c6m3_port" )
+		SessionState.SpecialsDisabled = 1; DirectorOptions.cm_MaxSpecials = 0;
+
+	CheckDifficultyForSpecialStats( GetDifficulty() );
+}
+
 function OnGameEvent_tank_spawn( params )
 {
 	local tank = GetPlayerFromUserID( params["userid"] );
@@ -52,15 +61,6 @@ function OnGameEvent_tank_killed( params )
 	SessionState.TankCount--;
 }
 
-function OnGameEvent_round_start_post_nav( params )
-{
-	if ( Director.GetMapName() == "c5m5_bridge" || Director.GetMapName() == "c6m3_port" )
-		SessionState.SpecialsDisabled = 1;
-		DirectorOptions.cm_MaxSpecials = 0;
-
-	CheckDifficultyForSpecialStats( GetDifficulty() );
-}
-
 function OnGameEvent_difficulty_changed( params )
 {
 	CheckDifficultyForSpecialStats( params["newDifficulty"] );
@@ -69,15 +69,13 @@ function OnGameEvent_difficulty_changed( params )
 function OnGameEvent_finale_start( params )
 {
 	if ( Director.GetMapName() == "c6m3_port" )
-		SessionState.SpecialsDisabled = 0;
-		DirectorOptions.cm_MaxSpecials = 4;
+		SessionState.SpecialsDisabled = 0; DirectorOptions.cm_MaxSpecials = 4;
 }
 
 function OnGameEvent_gauntlet_finale_start( params )
 {
 	if ( Director.GetMapName() == "c5m5_bridge" )
-		SessionState.SpecialsDisabled = 0;
-		DirectorOptions.cm_MaxSpecials = 4;
+		SessionState.SpecialsDisabled = 0; DirectorOptions.cm_MaxSpecials = 4;
 }
 
 function CheckDifficultyForSpecialStats( difficulty )
@@ -144,4 +142,5 @@ function AllowTakeDamage( damageTable )
 			}
 		}
 	}
+	return true;
 }
