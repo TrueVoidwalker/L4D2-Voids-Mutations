@@ -1,0 +1,69 @@
+"competitivecoopl4d1"
+{
+	"base"		"coop"
+	"maxplayers"	"4"
+
+	"Author"	"Voidwalker"
+
+	"DisplayTitle"	"Compeititve Co-op: L4D1"
+	"ShortDescription"	"Play Campaign against Versus-like Special Infected!"
+	"Description"	"The Special Infected have been buffed to their Versus difficulty, beware."
+
+	convar
+	{
+		// General Settings
+		sv_alltalk 0
+		z_use_tolerance 0.98
+		z_scrimmage_creep_delay 0
+		z_scrimmage_creep_rate 100
+
+		// Spawn Settings
+		z_spawn_safety_range 200
+		z_finale_spawn_safety_range 600
+		z_ghost_los_expected_progress 2000
+		director_special_initial_spawn_delay_min 2
+		director_special_initial_spawn_delay_max 10
+		z_smoker_limit 1
+		z_hunter_limit 4
+
+		// Infected Settings
+		nav_max_view_distance 1500
+		z_max_stagger_duration 0.9
+		z_female_boomer_spawn_chance 100
+		tongue_miss_delay 3
+		tongue_hit_delay 15
+		tongue_dropping_to_ground_time 0.5
+		tongue_los_forgiveness_time 1.5
+		tongue_no_progress_choke_early_delay 1.0
+		tongue_choke_damage_amount 5
+		tongue_break_from_damage_amount 300
+		z_pounce_stumble_radius 160
+		z_pounce_damage_interrupt 150
+		z_jockey_ride_damage 2
+		z_jockey_ride_damage_interval 0.5
+		z_leap_interval_post_incap 25
+		charger_pz_claw_dmg 8
+		tank_burn_duration 30
+		z_witch_damage_per_kill_hit 15
+
+		// Survivor Settings
+		z_max_survivor_damage 100
+		z_gun_swing_coop_max_penalty 6
+		z_gun_swing_coop_min_penalty 3
+		sb_friend_immobilized_reaction_time_normal 0.5
+		sb_friend_immobilized_reaction_time_hard 0.33
+		sb_friend_immobilized_reaction_time_expert 0.25
+
+		// Equipment Settings
+		ammo_autoshotgun_max 128
+		ammo_shotgun_max 128
+		ammo_smg_max 480
+		z_tank_autoshotgun_dmg_scale 0.75
+		mounted_gun_cooldown_time 20
+		mounted_gun_overheat_penalty_time 20
+		mounted_gun_overheat_time 20
+		sv_infected_ceda_vomitjar_probability 0
+		sv_infected_police_tonfa_probability 0
+		sv_infected_riot_control_tonfa_probability 0
+	}
+}

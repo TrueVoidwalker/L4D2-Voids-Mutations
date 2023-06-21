@@ -1,0 +1,54 @@
+"competitivecoop"
+{
+	"base"		"coop"
+	"maxplayers"	"4"
+
+	"Author"	"Voidwalker"
+
+	"DisplayTitle"	"Compeititve Co-op"
+	"ShortDescription"	"Play Campaign against Versus-like Special Infected!"
+	"Description"	"The Special Infected have been buffed to their Versus difficulty, beware."
+
+	convar
+	{
+		// General Settings
+		sv_alltalk 0
+		z_scrimmage_creep_delay 0
+		z_scrimmage_creep_rate 100
+
+		// Spawn Settings
+		z_spawn_safety_range 200
+		z_ghost_los_expected_progress 2000
+		director_special_initial_spawn_delay_min 2
+		director_special_initial_spawn_delay_max 10
+
+		// Infected Settings
+		z_max_stagger_duration 0.9
+		tongue_miss_delay 3
+		tongue_hit_delay 15
+		tongue_dropping_to_ground_time 0.5
+		tongue_los_forgiveness_time 1.5
+		tongue_no_progress_choke_early_delay 1.0
+		tongue_choke_damage_amount 5
+		tongue_break_from_damage_amount 300
+		z_pounce_stumble_radius 160
+		z_pounce_damage_interrupt 150
+		z_jockey_ride_damage 2
+		z_jockey_ride_damage_interval 0.5
+		z_leap_interval_post_incap 25
+		charger_pz_claw_dmg 8
+		tank_burn_duration 90
+		z_witch_damage_per_kill_hit 15
+
+		// Survivor Settings
+		z_gun_swing_coop_max_penalty 6
+		z_gun_swing_coop_min_penalty 3
+		sb_friend_immobilized_reaction_time_normal 0.5
+		sb_friend_immobilized_reaction_time_hard 0.33
+		sb_friend_immobilized_reaction_time_expert 0.25
+
+		// Equipment Settings
+		sv_infected_ceda_vomitjar_probability 0
+		vomitjar_duration_infected_bot 15
+	}
+}
