@@ -59,7 +59,7 @@ function AllowTakeDamage( damageTable )
 						case 2:	// Advanced
 							damageTable.DamageDone = ( SessionState.FixSpecialClaw * 2 ); break;
 						case 3:	// Expert
-							damageTable.DamageDone = ( SessionState.FixSpecialClaw * 2 ); break;
+							damageTable.DamageDone = ( SessionState.FixSpecialClaw * 3 ); break;
 						default:	// Easy/Other
 							damageTable.DamageDone = ( SessionState.FixSpecialClaw / 1 ); break;
 					}
@@ -81,7 +81,14 @@ function AllowTakeDamage( damageTable )
 						case 6:	// Charger
 							SessionState.FixSpecialClaw = Convars.GetFloat( "charger_pz_claw_dmg" ); break;
 						case 8:	// Tank
-							SessionState.FixSpecialClaw = Convars.GetFloat( "vs_tank_damage" ); break;
+						{
+							if ( damageTable.Inflictor.GetClassname() == "tank_rock" )
+								SessionState.FixSpecialClaw = Convars.GetFloat( "vs_tank_damage" );
+							else
+								SessionState.FixSpecialClaw = Convars.GetFloat( "vs_tank_damage" );
+
+							break;
+						}
 					}
 
 					switch ( SessionState.CurrentDifficulty )
