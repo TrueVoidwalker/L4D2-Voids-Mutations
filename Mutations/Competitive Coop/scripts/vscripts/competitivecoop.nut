@@ -89,8 +89,22 @@ function CheckDifficultyForSpecialStats( difficulty )
 // Fix Special Infected damage to mimic VS.
 function AllowTakeDamage( damageTable )
 {
-	if ( !damageTable.Attacker || !damageTable.Victim )
+	if ( !damageTable.Attacker || !damageTable.Victim || !damageTable.Inflictor )
 		return true;
+
+	if ( damageTable.Attacker.IsPlayer() && damageTable.Victim.IsPlayer() )
+	{
+		if ( damageTable.Attacker.IsSurvivor() && damageTable.Victim.GetZombieType() == 6 )
+		{
+			local ChargeAbility = NetProps.GetPropEntityArray( damageTable.Victim, "m_customAbility", 0 );
+
+			if ( NetProps.GetPropIntArray( ChargeAbility, "m_isCharging", 0 ) > 0 )
+			{
+				damageTable.DamageDone = floor( (damageTable.DamageDone + 1) * 3 );
+				return true;
+			}
+		}
+	}
 
 	if ( damageTable.DamageType == 128 )
 	{

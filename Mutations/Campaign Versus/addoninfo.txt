@@ -1,0 +1,9 @@
+"AddonInfo"
+{
+	addonSteamAppID		550
+	addonversion		1
+	addontitle			"Versus Campaign"
+	addonauthor			"Voidwalker"
+	addontagline		"Gamemode"
+	addonDescription	"No local addon desc."
+}

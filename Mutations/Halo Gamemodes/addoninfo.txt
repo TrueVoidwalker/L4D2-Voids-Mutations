@@ -1,0 +1,9 @@
+"AddonInfo"
+{
+	addonSteamAppID		550
+	addonversion		1
+	addontitle			"Halo-style Gamemodes"
+	addonauthor			"Voidwalker"
+	addontagline		"Gamemode"
+	addonDescription	"A collection of mutations designed to blend the gameplay of the Halo franchise with that of Left 4 Dead 2."
+}

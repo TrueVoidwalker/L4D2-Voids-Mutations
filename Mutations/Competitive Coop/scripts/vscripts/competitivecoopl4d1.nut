@@ -307,12 +307,6 @@ function AllowTakeDamage( damageTable )
 						SessionState.FixSpecialClaw = Convars.GetFloat( "boomer_pz_claw_dmg" ); break;
 					case 3:	// Hunter
 						SessionState.FixSpecialClaw = Convars.GetFloat( "hunter_pz_claw_dmg" ); break;
-					case 4:	// Spitter
-						SessionState.FixSpecialClaw = Convars.GetFloat( "spitter_pz_claw_dmg" ); break;
-					case 5:	// Jockey
-						SessionState.FixSpecialClaw = Convars.GetFloat( "jockey_pz_claw_dmg" ); break;
-					case 6:	// Charger
-						SessionState.FixSpecialClaw = Convars.GetFloat( "charger_pz_claw_dmg" ); break;
 					case 8:	// Tank
 						SessionState.FixSpecialClaw = Convars.GetFloat( "vs_tank_damage" ); break;
 				}

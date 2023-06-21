@@ -1,0 +1,189 @@
+// Version 2.0.1:
+===================================================================================
+• Updated file names.
+
+Zombie Changes:
+	• Improved method by which Charger deals dominate damage.
+
+// Version 2.0:
+===================================================================================
+Survivor Changes:
+	• Survivors when revived now have 45 real health and 70 buffer health.
+	• Survivors incap max reverted to 2 across all gamemodes.
+
+Weapon Changes:
+	• Magnum damage reduced by 20% via script.
+	• Submachine Guns and Non-Automatic Shotguns have reserve ammo equal to 16x their ammo capacity.
+	• Assault Rifles, Automatic Shotguns, and the Hunting Rifle all have reserve ammo equal to 8x their ammo capacity.
+	• Removed ammo piles.
+	• Reverted Shotgun bonus damage mult and range.
+
+Healing Changes:
+	• Buffer health now decays at a rate of 1/s (from 1/2s).
+	• Pain Pills now heal up to 45 health, or give up to 70 buffer health.
+	• Adrenaline now heals up to 15 health, or give up to 30 buffer health.
+
+Zombie Changes:
+	• Common Infected health increased to 100.
+	• Common Infected hoards no longer randomly happen.
+	• Special Infected dominate damage more appropriately adjusted via difficulty.
+	• Charger claw damage reduced to 8.
+	• Spitter acid damage-per-tick is now static based on difficulty.
+		○ Easy -> 1, Normal -> 3, Advanced -> 4, Expert -> 5
+
+Other Changes:
+	• Reverted fire base damage.
+	• Reverted Witch burn timer to 15 seconds.
+
+// Version 1.4.3:
+===================================================================================
+Zombie Changes:
+	• Fixed damage override tables, should no longer spam console.
+
+// Version 1.4.2:
+===================================================================================
+Survivor Changes:
+	• Survivor max health increased to 115.
+
+Healing Changes:
+	• First Aid Kits now only heal 70 health.
+	• Pain Pills now give 70 buffer health.
+	• Adrenaline now gives 30 buffer health.
+
+Zombie Changes:
+	• Common Infected damage and attack speed re-adjusted based off Halo mechanics.
+		○ Common Infected damage-per-difficulty is as follows: 1/1.1s -> 7/1s -> 9/0.85s -> 13/0.75s
+	• Tank attack damage increased to 28. 
+
+// Version 1.4.1:
+===================================================================================
+Zombie Changes:
+	• Common Infected now deal less damage per attack on higher difficulties, but can attack more often.
+	• Special Infected now deal VS claw damage in co-op.
+
+// Version 1.4:
+===================================================================================
+Survivor Changes:
+	• Respawn health increased to 100.
+
+Weapon Changes:
+	• AWP no longer replaces the Military Sniper.
+	• Hunting Rifle reserve capacity reduced to 75.
+	• Sniper Rifle reserve capacity reduced to 30.
+
+Other Changes:
+	• Weapon upgrades are no longer replaced with healing items.
+
+// Version 1.3:
+===================================================================================
+Survivor Changes:
+	• Buffer health lasts three times longer.
+		► Better blends Halo Overshields and L4D2 temp health.
+
+Weapon Changes:
+	• Melee weapons disabled except for the Chainsaw.
+	• Hunting Rifle reserve capacity increased to 120.
+	• Minigun and Mounted MG spread reduced to 4°.
+	• Mounted MG and Minigun continuous fire duration reduced to 10 seconds.
+	• Mounted MG and Minigun cooldown reduced to 3.33 seconds.
+	• Minigun RPM reduced to 900.
+		► Matches Halo Warthog's Chaingun RPM. 
+	• Bile Bombs now lasts 30 seconds against Special Infected bots, lasts 20 seconds against Special Infected players.
+	• Bile Bombs will now bile other Survivors for 10 seconds.
+		► You need to watch out for friendly fire, like in Halo. :)
+
+Healing Changes:
+	• Adrenaline movement speed bonus increased to 25%.
+
+Gamemode Changes:
+	• Helljumper Co-op:
+		○ Survivors no longer spawn with defibs.
+	• Infection:
+		○ Tank health increased to standard 6000 and takes less burn damage than in Campaign.
+
+// Version 1.2:
+===================================================================================
+Weapon Changes:
+	• 'Static' Military Snipers are now properly replaced with AWPs.
+	• Mounted MG and Minigun cooldown increased to 15 seconds.
+	• Chainsaws will now last 30 seconds of use. 
+
+Healing Changes:
+	• Adrenaline gives 25 buffer health again, the item usage and revive speed bonuses are reduced to 50%.
+
+Zombie Changes:
+	• Witch burn time reduced to 10 seconds.
+	• Tank burn time reduced to 30/40/50 based on difficulty.
+
+Other Changes:
+	• Fire damage-per-second increased by 50%, bonus damage to Special Infected reduced to 2x.
+	• Explosive Ammo will be replaced with Pain Pills.
+	• Incendiary Ammo will be replaced with Adrenaline.
+
+Gamemode Changes:
+	• Helljumper Co-op:
+		○ Bonus damage using shotguns at close range and molotovs against Special Infected, is reduced to 1.5x (Tank burn times increased).
+		○ Special Infected increased spawn cap and faster spawn timer removed.
+			► Reverted to not mess with maps that disable Specials temporarily.
+		○ Random Infected hoards happen more often.
+
+// Version 1.1:
+===================================================================================
+Weapon Changes:
+	• The Grenade Launcher no longer deals bonus damage to Tanks.
+
+Zombie Changes:
+	• Easy now only reduces Infected body health and Tank health to 75% normal.
+		► Infected health in Easy now better mimics easy difficulty in Halo.
+	• Infected hoard minimum size increased to 20.
+
+Other Changes:
+	• Laser Sights, Explosive Ammo, and Incendiary Ammo will be replaced with First Aid Kits.
+
+Gamemode Changes:
+	• Infection:
+		○ First Aid Kits are near instant to use, but only heal 40 health.
+
+// Version 1.0:
+===================================================================================
+Survivor Changes:
+	• Survivors spawn with Magnums.
+	• Survivors are not stunned when damaged, nor slowed at low health.
+	• Survivors can only be incapacitated for 30 seconds max, however it only takes 3 seconds to revive survivors and they can be infinitely revived.
+	• Survivors when revived, defibrillated, or respawned have 40 health.
+	• Survivors can shove infinitely.
+	• Survivor friendly fire is 25% across the board, except in easy where it is still 0%.
+	• Survivor bots react quicker to other survivors being dominated.
+
+Weapon Changes:
+	• All CS:S weapons are disabled, except the AWP which replaces the Military Sniper.
+	• Submachine Guns and Non-Automatic Shotguns have reserve ammo equal to 10x their ammo capacity.
+	• Assault Rifles and Automatic Shotguns have reserve ammo equal to 5x their ammo capacity.
+	• Hunting Rifles and Sniper Rifles have 60 shots max, including both initial ammo and reserves.
+	• Grenade Launchers have 15 reserve ammo (half vanilla), but deal 75% more damage.
+	• Mounted MGs and Miniguns can fire continuously for 25 seconds, and have a 10 second cooldown.
+	• The close-range shotgun damage bonus has been reduced to 2x damage, but the range has been increased by 150%.
+	• Automatic Shotguns no longer deal reduced damage to Tanks.
+	• Chainsaws will now last 50 seconds of use.
+
+Healing Changes:
+	• First Aid Kits will heal all missing health.
+	• Pain Pills give 60 buffer health, but lasts 50 seconds (think Halo 3 Overshields powerup).
+	• Adrenaline gives 20 buffer health and lasts 10 seconds (Halo 3/Reach Speed Boost powerup).
+	• Pain Pills and Adrenaline will not be converted to first Aid Kits or Defibrillators.
+
+Zombie Changes:
+	• Infected take modified body damage in-line with Halo 3's difficulties, this applies to Tanks as well.
+		○ Easy reduces Infected body health and Tank health to 50% normal.
+		○ Advanced increases Infected body health and Tank health to 125% normal.
+		○ Expert increases Infected body health and Tank health to 150% normal.
+	• Infected no longer deal reduced damage when hitting survivors from behind.
+
+Gamemode Changes:
+	• Helljumper Co-op:
+		○ Survivors will be stunned when damaged (albeit to a lesser degree than vanilla) and slowed at low health again.
+		○ Survivors can only be incapacitated twice again.
+		○ Survivors can no longer shove infinitely.
+		○ Survivors additionally spawn with defibs and pain pills.
+		○ Survivors take increased damage from infected.
+		○ Special Infected have a higher spawn cap and respawn faster (versus values).
