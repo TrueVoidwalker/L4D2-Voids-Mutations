@@ -40,11 +40,13 @@ function AllowTakeDamage( damageTable )
 							SessionState.FixSpecialClaw = Convars.GetFloat( "z_jockey_ride_damage" ); break;
 						case 6:	// Charger
 						{
-							if ( damageTable.Attacker.GetVelocity().Length() > 0 )
+							local ChargeAbility = NetProps.GetPropEntityArray( damageTable.Attacker, "m_customAbility", 0 );
+
+							if ( NetProps.GetPropIntArray( ChargeAbility, "m_isCharging", 0 ) > 0 )
 								SessionState.FixSpecialClaw = Convars.GetFloat( "z_charge_max_damage" );
 							else
 							{
-								SessionState.FixSpecialClaw = Convars.GetFloat( "z_charger_pound_dmg" );
+								damageTable.DamageDone = Convars.GetFloat( "z_charger_pound_dmg" );
 								return true;
 							}
 
@@ -184,5 +186,6 @@ function AllowTakeDamage( damageTable )
 			}
 		}
 	}
+
 	return true;
 }
