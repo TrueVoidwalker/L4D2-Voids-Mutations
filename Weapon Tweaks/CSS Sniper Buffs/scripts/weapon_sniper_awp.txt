@@ -9,7 +9,7 @@ WeaponData
 	"MinStandingSpread"		"0.1"
 	"MinInAirSpread"		"1.5"
 	"MaxMovementSpread"		"3"
-	"ReloadDuration"		"2.5"
+	"ReloadDuration"		"2.75"
 	"AddonAttachment"		"primary"
 	"Team"				"Survivor"
 	
@@ -63,7 +63,7 @@ WeaponData
 	"PenetrationMaxDistance"	"0"	// none
 	"CharacterPenetrationMaxDistance" "8192" // Shooting through infected is doesn't count against penetration count out to this range
 
-	"Damage"			"320"
+	"Damage"			"215"
 	"Range"				"8192"
 	"RangeModifier"			"1.0"
 	"Bullets"			"1"
@@ -97,7 +97,7 @@ WeaponData
 
 	"clip_size"			"10"
 	
-	"primary_ammo"			"AMMO_TYPE_AUTOSHOTGUN"
+	"primary_ammo"			"AMMO_TYPE_SNIPERRIFLE"
 	"secondary_ammo"		"None"
 
 	"weight"			"20"
